@@ -886,3 +886,44 @@ body {
     padding: 24px;
   }
 }
+
+
+/* Logo-only reference match update */
+.brand-image-link {
+  min-width: clamp(286px, 28vw, 430px);
+  width: clamp(286px, 28vw, 430px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.brand-logo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.28));
+}
+.site-header.has-shadow .brand-logo-image {
+  max-height: 72px;
+}
+@media (max-width: 1040px) {
+  .brand-image-link {
+    min-width: 260px;
+    width: 300px;
+  }
+  .brand-logo-image {
+    max-height: 68px;
+  }
+}
+@media (max-width: 680px) {
+  .brand-image-link {
+    min-width: 210px;
+    width: 230px;
+  }
+  .brand-logo-image {
+    max-height: 52px;
+  }
+}
