@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enroll Now | Capptonius Technology INC</title>
+  <meta name="description" content="Submit your enrollment request for Capptonius Technology training, staffing, consulting, and software development services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="enroll-page">
+  <main class="enroll-shell">
+    <section class="enroll-hero" aria-labelledby="enroll-title">
+      <a class="brand brand-image-link enroll-logo" href="index.html" aria-label="Capptonius Technologies home">
+        <img class="brand-logo-image" src="assets/capptonius-reference-logo-transparent.png" alt="Capptonius Technologies">
+      </a>
+
+      <div class="enroll-copy">
+        <span class="section-kicker"><span></span>Enrollment Request</span>
+        <h1 id="enroll-title">Start your Capptonius enrollment request</h1>
+        <p>Share your details and the service you need. Our team will review your request and contact you with the next steps.</p>
+      </div>
+    </section>
+
+    <section class="enroll-panel" aria-label="Enrollment form">
+      <form class="enroll-form" data-enroll-form>
+        <label>
+          Full Name
+          <input type="text" name="fullName" placeholder="Enter your full name" autocomplete="name" required>
+        </label>
+
+        <label>
+          Email ID
+          <input type="email" name="email" placeholder="Enter your email address" autocomplete="email" required>
+        </label>
+
+        <label>
+          Phone Number
+          <input type="tel" name="phone" placeholder="Enter your phone number" autocomplete="tel" required>
+        </label>
+
+        <label>
+          Service Required
+          <select name="service" required>
+            <option value="">Select a service</option>
+            <option>IT Training</option>
+            <option>IT Staffing</option>
+            <option>Custom Software Development</option>
+            <option>Web Application Development</option>
+            <option>Mobile App Development</option>
+            <option>Cloud & DevOps</option>
+            <option>UI/UX Design</option>
+            <option>Software QA & Testing</option>
+            <option>Consulting</option>
+          </select>
+        </label>
+
+        <label>
+          Additional Details
+          <textarea name="details" rows="4" placeholder="Tell us anything else we should know"></textarea>
+        </label>
+
+        <button class="button button-primary enroll-submit" type="submit">Submit Request</button><p class="form-note" data-enroll-note></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
