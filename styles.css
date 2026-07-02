@@ -1244,3 +1244,130 @@ body {
     font-size: 0.78rem;
   }
 }
+
+
+/* Enrollment page */
+.enroll-page {
+  min-height: 100vh;
+  color: #ffffff;
+  background:
+    linear-gradient(90deg, rgba(2, 15, 33, 0.94), rgba(2, 15, 33, 0.58)),
+    url("assets/hero-skyline-network.png") center / cover no-repeat,
+    #021126;
+}
+
+.enroll-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(360px, 520px);
+  align-items: center;
+  gap: clamp(32px, 5vw, 76px);
+  padding: clamp(28px, 5vw, 72px);
+}
+
+.enroll-hero {
+  max-width: 720px;
+}
+
+.enroll-logo {
+  margin-bottom: clamp(54px, 8vh, 96px);
+}
+
+.enroll-copy h1 {
+  margin: 20px 0 18px;
+  color: #ffffff;
+  font-size: clamp(3rem, 7vw, 6.6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.enroll-copy p {
+  max-width: 620px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.enroll-panel {
+  width: 100%;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: rgba(3, 22, 47, 0.88);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(18px);
+}
+
+.enroll-form {
+  display: grid;
+  gap: 18px;
+}
+
+.enroll-form label {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.enroll-form input,
+.enroll-form select,
+.enroll-form textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 13px 14px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  font: inherit;
+  outline: none;
+}
+
+.enroll-form select option {
+  color: #061a35;
+}
+
+.enroll-form textarea {
+  resize: vertical;
+  min-height: 112px;
+}
+
+.enroll-form input:focus,
+.enroll-form select:focus,
+.enroll-form textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(242, 169, 21, 0.16);
+}
+
+.enroll-submit {
+  width: 100%;
+  margin-top: 4px;
+  border: 0;
+  cursor: pointer;
+}
+
+.enroll-form .form-note {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 920px) {
+  .enroll-shell {
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding: 24px 20px 36px;
+  }
+
+  .enroll-logo {
+    margin-bottom: 44px;
+  }
+
+  .enroll-copy h1 {
+    font-size: clamp(2.7rem, 13vw, 4.4rem);
+  }
+}

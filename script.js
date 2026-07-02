@@ -26,6 +26,34 @@ if (header) {
   });
 }
 
+
+const enrollForm = document.querySelector("[data-enroll-form]");
+const enrollNote = document.querySelector("[data-enroll-note]");
+
+if (enrollForm) {
+  enrollForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(enrollForm);
+    const fullName = String(formData.get("fullName") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const service = String(formData.get("service") || "").trim();
+    const details = String(formData.get("details") || "").trim();
+    const subject = encodeURIComponent("Enrollment request from " + fullName);
+    const body = encodeURIComponent(
+      "Full Name: " + fullName +
+      "\nEmail ID: " + email +
+      "\nPhone Number: " + phone +
+      "\nService Required: " + service +
+      "\n\nAdditional Details:\n" + details
+    );
+    window.location.href = "mailto:hr@capptonius.com?subject=" + subject + "&body=" + body;
+    if (enrollNote) {
+      enrollNote.textContent = "Opening your email app with the enrollment request ready to send.";
+    }
+  });
+}
+
 if (contactForm) {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -116,15 +144,31 @@ const navTargets = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
-if (navTargets.length && "IntersectionObserver" in window) {
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id));
-      }
-    });
-  }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
-  navTargets.forEach((target) => navObserver.observe(target));
+function updateActiveNav() {
+  if (!navLinks.length || !navTargets.length) return;
+  const headerOffset = (header ? header.offsetHeight : 0) + 90;
+  const pagePosition = window.scrollY + headerOffset;
+  let activeTarget = navTargets[0];
+
+  navTargets.forEach((target) => {
+    if (target.offsetTop <= pagePosition) {
+      activeTarget = target;
+    }
+  });
+
+  if (window.scrollY < 120) {
+    activeTarget = document.querySelector("#home") || activeTarget;
+  }
+
+  navLinks.forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("href") === "#" + activeTarget.id);
+  });
+}
+
+if (navTargets.length) {
+  updateActiveNav();
+  window.addEventListener("scroll", updateActiveNav, { passive: true });
+  window.addEventListener("resize", updateActiveNav);
 }
 
 
