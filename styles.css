@@ -1371,3 +1371,164 @@ body {
     font-size: clamp(2.7rem, 13vw, 4.4rem);
   }
 }
+
+/* PayPal enrollment enhancement */
+.enroll-assurance {
+  margin-top: clamp(38px, 6vh, 68px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.enroll-assurance div {
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.enroll-assurance strong {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 14px;
+  color: #061a35;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+}
+
+.enroll-assurance span {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.enroll-panel-heading {
+  margin-bottom: 22px;
+}
+
+.enroll-panel-heading span,
+.payment-summary span {
+  color: var(--gold-2);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.enroll-panel-heading h2 {
+  margin: 8px 0 0;
+  color: #ffffff;
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+}
+
+.payment-panel {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.payment-panel[hidden] {
+  display: none;
+}
+
+.payment-summary {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 18px;
+  border: 1px solid rgba(242, 169, 21, 0.24);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(242, 169, 21, 0.14), rgba(126, 203, 255, 0.08));
+}
+
+.payment-summary h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.payment-summary div {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.payment-summary small {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.payment-summary strong {
+  color: var(--gold-2);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.paypal-status {
+  min-height: 24px;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.paypal-status[data-status="success"] {
+  color: #9ff0c8;
+}
+
+.paypal-status[data-status="warning"] {
+  color: #ffd38a;
+}
+
+.paypal-status[data-status="error"] {
+  color: #ffb4b4;
+}
+
+.paypal-button-shell {
+  min-height: 46px;
+}
+
+.payment-email-link,
+.payment-edit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  margin-top: 12px;
+  border-radius: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.payment-email-link {
+  color: #061a35;
+  background: linear-gradient(135deg, #9ff0c8, #d9ffe8);
+}
+
+.payment-edit {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+}
+
+.payment-email-link[hidden] {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .enroll-assurance {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-summary div {
+    align-items: start;
+    flex-direction: column;
+  }
+}

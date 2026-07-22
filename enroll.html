@@ -19,12 +19,23 @@
 
       <div class="enroll-copy">
         <span class="section-kicker"><span></span>Enrollment Request</span>
-        <h1 id="enroll-title">Start your Capptonius enrollment request</h1>
-        <p>Share your details and the service you need. Our team will review your request and contact you with the next steps.</p>
+        <h1 id="enroll-title">Enroll with Capptonius</h1>
+        <p>Submit your details, choose a service, and complete checkout through PayPal Business once your payment setup is configured.</p>
+      </div>
+
+      <div class="enroll-assurance" aria-label="Enrollment steps">
+        <div><strong>1</strong><span>Enter details</span></div>
+        <div><strong>2</strong><span>Review fee</span></div>
+        <div><strong>3</strong><span>Pay securely</span></div>
       </div>
     </section>
 
     <section class="enroll-panel" aria-label="Enrollment form">
+      <div class="enroll-panel-heading">
+        <span>Secure Enrollment</span>
+        <h2>Service request and checkout</h2>
+      </div>
+
       <form class="enroll-form" data-enroll-form>
         <label>
           Full Name
@@ -58,15 +69,40 @@
         </label>
 
         <label>
+          Payment Amount
+          <input type="number" name="amount" placeholder="Enter amount in USD" min="1" step="0.01" inputmode="decimal" required>
+        </label>
+
+        <label>
           Additional Details
           <textarea name="details" rows="4" placeholder="Tell us anything else we should know"></textarea>
         </label>
 
-        <button class="button button-primary enroll-submit" type="submit">Submit Request</button><p class="form-note" data-enroll-note></p>
+        <button class="button button-primary enroll-submit" type="submit">Continue to Payment</button>
+        <p class="form-note" data-enroll-note></p>
       </form>
+
+      <section class="payment-panel" data-payment-panel hidden aria-label="PayPal checkout">
+        <div class="payment-summary">
+          <span>Payment Summary</span>
+          <h3 data-payment-service>Selected service</h3>
+          <div>
+            <small>Amount due</small>
+            <strong data-payment-amount>$0.00</strong>
+          </div>
+        </div>
+
+        <div class="paypal-status" data-paypal-status></div>
+        <div id="paypal-button-container" class="paypal-button-shell"></div>
+
+        <a class="payment-email-link" href="mailto:hr@capptonius.com" data-enrollment-email hidden>Send enrollment details</a>
+
+        <button class="payment-edit" type="button" data-edit-enrollment>Edit details</button>
+      </section>
     </section>
   </main>
 
+  <script src="payment-config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
