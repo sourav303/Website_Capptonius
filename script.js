@@ -3,6 +3,9 @@ const menu = document.querySelector("[data-menu]");
 const header = document.querySelector("[data-header]");
 const contactForm = document.querySelector("[data-contact-form]");
 const formNote = document.querySelector("[data-form-note]");
+const careerForm = document.querySelector("[data-career-form]");
+const careerNote = document.querySelector("[data-career-note]");
+const sectionJumpSelects = document.querySelectorAll("[data-section-jump]");
 
 if (menuButton && menu) {
   menuButton.addEventListener("click", () => {
@@ -25,6 +28,22 @@ if (header) {
     header.classList.toggle("has-shadow", window.scrollY > 10);
   });
 }
+
+sectionJumpSelects.forEach((select) => {
+  select.addEventListener("change", () => {
+    const target = select.value;
+    if (!target) return;
+    if (target.startsWith("#")) {
+      const section = document.querySelector(target);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      window.location.href = target;
+    }
+    select.value = "";
+  });
+});
 
 
 const enrollForm = document.querySelector("[data-enroll-form]");
@@ -271,6 +290,39 @@ if (contactForm) {
     window.location.href = "mailto:hr@capptonius.com?subject=" + subject + "&body=" + body;
     if (formNote) {
       formNote.textContent = "Opening your email app with the inquiry ready to send.";
+    }
+  });
+}
+
+if (careerForm) {
+  careerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!careerForm.reportValidity()) return;
+    const formData = new FormData(careerForm);
+    const name = String(formData.get("candidateName") || "").trim();
+    const email = String(formData.get("candidateEmail") || "").trim();
+    const phone = String(formData.get("candidatePhone") || "").trim();
+    const role = String(formData.get("candidateRole") || "").trim();
+    const workAuth = String(formData.get("workAuth") || "").trim();
+    const experience = String(formData.get("experience") || "").trim();
+    const summary = String(formData.get("candidateSummary") || "").trim();
+    const resumeFile = formData.get("resumeFile");
+    const resumeName = resumeFile && resumeFile.name ? resumeFile.name : "Not attached";
+    const subject = encodeURIComponent("Career application from " + name);
+    const body = encodeURIComponent(
+      "Full Name: " + name +
+      "\nEmail ID: " + email +
+      "\nPhone Number: " + phone +
+      "\nRole Interested In: " + role +
+      "\nWork Authorization: " + workAuth +
+      "\nYears of Experience: " + experience +
+      "\nResume File Selected: " + resumeName +
+      "\n\nSkills / Summary:\n" + summary +
+      "\n\nPlease attach the resume file before sending this email."
+    );
+    window.location.href = "mailto:hr@capptonius.com?subject=" + subject + "&body=" + body;
+    if (careerNote) {
+      careerNote.textContent = "Opening your email app. Please attach your resume file before sending.";
     }
   });
 }

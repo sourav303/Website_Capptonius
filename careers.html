@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | Capptonius Technology INC</title>
+  <meta name="description" content="Apply for technology, staffing, recruiting, development, QA, cloud, and consulting opportunities at Capptonius Technology INC.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="career-page">
+  <header class="enroll-topbar" aria-label="Careers navigation">
+    <a class="brand brand-image-link enroll-topbar-logo" href="index.html" aria-label="Capptonius Technologies home">
+      <img class="brand-logo-image" src="assets/capptonius-reference-logo-transparent.png" alt="Capptonius Technologies">
+    </a>
+    <div class="enroll-topbar-actions">
+      <a href="index.html">Back to Home</a>
+      <a href="mailto:hr@capptonius.com">HR Support</a>
+    </div>
+  </header>
+
+  <main class="career-shell">
+    <section class="career-hero" aria-labelledby="career-title">
+      <span class="section-kicker"><span></span>Careers</span>
+      <h1 id="career-title">Build your tech career with Capptonius</h1>
+      <p>Submit your profile for software development, QA, cloud, DevOps, recruitment, staffing, consulting, and training opportunities.</p>
+
+      <div class="career-highlights" aria-label="Career highlights">
+        <div><strong>01</strong><span>Developer and engineering roles</span></div>
+        <div><strong>02</strong><span>Staffing and recruitment opportunities</span></div>
+        <div><strong>03</strong><span>US-focused technology projects</span></div>
+      </div>
+    </section>
+
+    <section class="career-panel" aria-label="Resume submission form">
+      <div class="enroll-panel-heading">
+        <span>Submit Resume</span>
+        <h2>Candidate application</h2>
+        <p>Complete the details below. Your email app will open with the application ready to send to HR.</p>
+      </div>
+
+      <form class="career-form" data-career-form>
+        <div class="enroll-form-grid">
+          <label>
+            Full Name
+            <input type="text" name="candidateName" placeholder="Enter your full name" autocomplete="name" required>
+          </label>
+
+          <label>
+            Email ID
+            <input type="email" name="candidateEmail" placeholder="Enter your email address" autocomplete="email" required>
+          </label>
+
+          <label>
+            Phone Number
+            <input type="tel" name="candidatePhone" placeholder="Enter your phone number" autocomplete="tel" required>
+          </label>
+
+          <label>
+            Role Interested In
+            <select name="candidateRole" required>
+              <option value="">Select a role area</option>
+              <option>Software Developer</option>
+              <option>Web Application Developer</option>
+              <option>Mobile App Developer</option>
+              <option>QA Engineer</option>
+              <option>Cloud / DevOps Engineer</option>
+              <option>UI/UX Designer</option>
+              <option>IT Recruiter</option>
+              <option>IT Staffing / Bench Sales</option>
+              <option>Training / Consulting</option>
+            </select>
+          </label>
+
+          <label>
+            Work Authorization
+            <input type="text" name="workAuth" placeholder="Example: US Citizen, GC, H1B, OPT, CPT">
+          </label>
+
+          <label>
+            Years of Experience
+            <input type="number" name="experience" placeholder="Example: 3" min="0" step="0.5">
+          </label>
+
+          <label class="details-field">
+            Resume File
+            <input type="file" name="resumeFile" accept=".pdf,.doc,.docx">
+          </label>
+
+          <label class="details-field">
+            Skills / Summary
+            <textarea name="candidateSummary" rows="5" placeholder="Add your key skills, current location, availability, and preferred role"></textarea>
+          </label>
+        </div>
+
+        <button class="button button-primary enroll-submit" type="submit">Submit Application</button>
+        <p class="form-note" data-career-note></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

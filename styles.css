@@ -1877,3 +1877,308 @@ body {
     padding-right: 18px;
   }
 }
+
+/* Cross-system compatibility and careers page */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+button,
+label,
+input,
+select,
+textarea {
+  overflow-wrap: anywhere;
+}
+
+.enroll-copy h1 {
+  max-width: 560px;
+  font-size: clamp(3.1rem, 5.2vw, 5.8rem);
+}
+
+@media (max-width: 1400px) {
+  .enroll-shell {
+    grid-template-columns: minmax(320px, 0.78fr) minmax(500px, 590px);
+    gap: clamp(24px, 3vw, 44px);
+  }
+
+  .enroll-copy h1 {
+    max-width: 480px;
+    font-size: clamp(2.8rem, 4.8vw, 4.7rem);
+  }
+
+  .enroll-copy p {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .enroll-shell {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .enroll-copy h1 {
+    max-width: none;
+    font-size: clamp(3rem, 9vw, 5.4rem);
+  }
+}
+
+.career-page {
+  min-height: 100vh;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 76% 20%, rgba(242, 169, 21, 0.18), transparent 24%),
+    linear-gradient(90deg, rgba(2, 15, 33, 0.96), rgba(2, 15, 33, 0.64)),
+    url("assets/hero-skyline-network.png") center / cover no-repeat,
+    #021126;
+  overflow-x: hidden;
+}
+
+.career-shell {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(520px, 640px);
+  align-items: center;
+  gap: clamp(32px, 5vw, 76px);
+  min-height: calc(100vh - 104px);
+  padding: clamp(28px, 5vw, 72px);
+}
+
+.career-hero h1 {
+  max-width: 700px;
+  margin: 20px 0 18px;
+  color: #ffffff;
+  font-size: clamp(3.2rem, 6vw, 6.8rem);
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.career-hero p {
+  max-width: 650px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.career-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 690px;
+  margin-top: 34px;
+}
+
+.career-highlights div {
+  min-height: 124px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(255,255,255,.1), rgba(255,255,255,.035));
+}
+
+.career-highlights strong {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--gold-2);
+  font-size: 1.35rem;
+}
+
+.career-highlights span {
+  display: block;
+  color: rgba(255,255,255,.82);
+  font-size: .9rem;
+  font-weight: 800;
+}
+
+.career-panel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.1), transparent 26%),
+    rgba(3, 22, 47, 0.9);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(18px);
+}
+
+.career-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), #7ecbff, var(--gold-2));
+}
+
+.career-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.career-form label {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.career-form input,
+.career-form select,
+.career-form textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 13px 14px;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 8px;
+  background: rgba(255,255,255,.075);
+  font: inherit;
+  outline: none;
+}
+
+.career-form select option {
+  color: #061a35;
+}
+
+.career-form input[type="file"] {
+  padding: 11px 14px;
+}
+
+.career-form textarea {
+  min-height: 116px;
+  resize: vertical;
+}
+
+.career-form input:focus,
+.career-form select:focus,
+.career-form textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(242, 169, 21, 0.16);
+}
+
+@media (max-width: 1180px) {
+  .career-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .career-hero h1 {
+    max-width: none;
+    font-size: clamp(3rem, 9vw, 5.4rem);
+  }
+}
+
+@media (max-width: 720px) {
+  .career-shell {
+    padding: 22px 18px 40px;
+  }
+
+  .career-highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Final text fitting and section jump polish */
+.hero-content h1,
+.hero-content h2,
+.enroll-copy h1,
+.career-hero h1 {
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.hero-content h1 {
+  font-size: clamp(3.8rem, 7vw, 6.8rem);
+}
+
+.hero-content h2 {
+  font-size: clamp(1.55rem, 2.3vw, 2.3rem);
+}
+
+.hero-copy,
+.enroll-copy p,
+.career-hero p {
+  text-wrap: pretty;
+}
+
+.hero-jump {
+  display: grid;
+  gap: 8px;
+  width: min(100%, 420px);
+  margin-top: 18px;
+  color: rgba(255,255,255,.82);
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.hero-jump select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 8px;
+  background: rgba(3, 22, 47, .74);
+  font: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+  outline: none;
+}
+
+.hero-jump select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(242, 169, 21, .2);
+}
+
+.hero-jump option {
+  color: #061a35;
+}
+
+@media (max-width: 1380px) {
+  .hero-content h1 {
+    font-size: clamp(3.2rem, 6.2vw, 5.8rem);
+  }
+
+  .hero-content h2 {
+    font-size: clamp(1.35rem, 2vw, 2rem);
+  }
+
+  .enroll-copy h1,
+  .career-hero h1 {
+    font-size: clamp(2.75rem, 5vw, 4.6rem);
+  }
+}
+
+@media (max-width: 920px) {
+  .hero-content h1,
+  .enroll-copy h1,
+  .career-hero h1 {
+    font-size: clamp(2.8rem, 11vw, 4.8rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-content h1,
+  .enroll-copy h1,
+  .career-hero h1 {
+    font-size: clamp(2.45rem, 12vw, 3.55rem);
+  }
+
+  .hero-content h2 {
+    font-size: 1.25rem;
+  }
+}
