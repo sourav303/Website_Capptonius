@@ -11,32 +11,53 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="enroll-page">
+  <header class="enroll-topbar" aria-label="Enrollment navigation">
+    <a class="brand brand-image-link enroll-topbar-logo" href="index.html" aria-label="Capptonius Technologies home">
+      <img class="brand-logo-image" src="assets/capptonius-reference-logo-transparent.png" alt="Capptonius Technologies">
+    </a>
+    <div class="enroll-topbar-actions">
+      <a href="index.html">Back to Home</a>
+      <a href="mailto:hr@capptonius.com">Need Help?</a>
+    </div>
+  </header>
+
   <main class="enroll-shell">
     <section class="enroll-hero" aria-labelledby="enroll-title">
-      <a class="brand brand-image-link enroll-logo" href="index.html" aria-label="Capptonius Technologies home">
-        <img class="brand-logo-image" src="assets/capptonius-reference-logo-transparent.png" alt="Capptonius Technologies">
-      </a>
-
       <div class="enroll-copy">
         <span class="section-kicker"><span></span>Enrollment Request</span>
         <h1 id="enroll-title">Enroll with Capptonius</h1>
-        <p>Submit your details, choose a service, and complete checkout through PayPal Business once your payment setup is configured.</p>
+        <p>Share your details, enter the amount you need to pay, and complete checkout through PayPal Business in a focused secure flow.</p>
       </div>
 
       <div class="enroll-assurance" aria-label="Enrollment steps">
         <div><strong>1</strong><span>Enter details</span></div>
-        <div><strong>2</strong><span>Review fee</span></div>
+        <div><strong>2</strong><span>Review amount</span></div>
         <div><strong>3</strong><span>Pay securely</span></div>
       </div>
+
+      <aside class="enroll-live-card" aria-label="Live checkout preview">
+        <div>
+          <span>Checkout Preview</span>
+          <strong data-live-amount>$0.00</strong>
+        </div>
+        <p data-live-service>Select a service to prepare checkout.</p>
+        <ul>
+          <li>PayPal Business checkout</li>
+          <li>USD amount entered by payer</li>
+          <li>Order ID shown after payment</li>
+        </ul>
+      </aside>
     </section>
 
     <section class="enroll-panel" aria-label="Enrollment form">
       <div class="enroll-panel-heading">
         <span>Secure Enrollment</span>
         <h2>Service request and checkout</h2>
+        <p>Complete the form first. The PayPal section appears only after the details and amount are valid.</p>
       </div>
 
       <form class="enroll-form" data-enroll-form>
+        <div class="enroll-form-grid">
         <label>
           Full Name
           <input type="text" name="fullName" placeholder="Enter your full name" autocomplete="name" required>
@@ -68,21 +89,30 @@
           </select>
         </label>
 
-        <label>
+        <label class="amount-field">
           Payment Amount
-          <input type="number" name="amount" placeholder="Enter amount in USD" min="1" step="0.01" inputmode="decimal" required>
+          <span>
+            <b>USD</b>
+            <input type="number" name="amount" placeholder="Enter amount" min="1" step="0.01" inputmode="decimal" required>
+          </span>
         </label>
 
-        <label>
+        <label class="details-field">
           Additional Details
           <textarea name="details" rows="4" placeholder="Tell us anything else we should know"></textarea>
         </label>
+        </div>
 
         <button class="button button-primary enroll-submit" type="submit">Continue to Payment</button>
         <p class="form-note" data-enroll-note></p>
       </form>
 
       <section class="payment-panel" data-payment-panel hidden aria-label="PayPal checkout">
+        <div class="payment-panel-header">
+          <span>Final Step</span>
+          <h2>Complete your payment</h2>
+        </div>
+
         <div class="payment-summary">
           <span>Payment Summary</span>
           <h3 data-payment-service>Selected service</h3>

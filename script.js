@@ -36,6 +36,10 @@ const paypalStatus = document.querySelector("[data-paypal-status]");
 const paypalButtonContainer = document.querySelector("#paypal-button-container");
 const editEnrollmentButton = document.querySelector("[data-edit-enrollment]");
 const enrollmentEmailLink = document.querySelector("[data-enrollment-email]");
+const enrollmentServiceInput = enrollForm ? enrollForm.querySelector("[name='service']") : null;
+const enrollmentAmountInput = enrollForm ? enrollForm.querySelector("[name='amount']") : null;
+const liveAmount = document.querySelector("[data-live-amount]");
+const liveService = document.querySelector("[data-live-service]");
 
 let currentEnrollment = null;
 let paypalRendered = false;
@@ -66,6 +70,24 @@ function setPayPalStatus(message, type) {
   if (!paypalStatus) return;
   paypalStatus.textContent = message;
   paypalStatus.dataset.status = type || "info";
+}
+
+function updateEnrollmentPreview() {
+  if (!enrollForm) return;
+  const service = enrollmentServiceInput ? enrollmentServiceInput.value : "";
+  const amount = enrollmentAmountInput ? Number(enrollmentAmountInput.value || "0") : 0;
+  if (liveService) {
+    liveService.textContent = service || "Select a service to prepare checkout.";
+  }
+  if (liveAmount) {
+    liveAmount.textContent = amount > 0 ? formatPaymentAmount(amount) : "$0.00";
+  }
+  if (paymentService && paymentPanel && !paymentPanel.hidden) {
+    paymentService.textContent = service || "Selected service";
+  }
+  if (paymentAmount && paymentPanel && !paymentPanel.hidden) {
+    paymentAmount.textContent = amount > 0 ? formatPaymentAmount(amount) : "$0.00";
+  }
 }
 
 function buildEnrollmentEmail(orderId) {
@@ -176,6 +198,14 @@ function renderPayPalButtons() {
 }
 
 if (enrollForm) {
+  updateEnrollmentPreview();
+
+  [enrollmentServiceInput, enrollmentAmountInput].forEach((input) => {
+    if (!input) return;
+    input.addEventListener("input", updateEnrollmentPreview);
+    input.addEventListener("change", updateEnrollmentPreview);
+  });
+
   enrollForm.addEventListener("submit", (event) => {
     event.preventDefault();
     if (!enrollForm.reportValidity()) return;
@@ -210,6 +240,7 @@ if (enrollForm) {
     if (enrollNote) {
       enrollNote.textContent = "Review your service selection below and complete checkout.";
     }
+    updateEnrollmentPreview();
     enrollForm.classList.add("is-ready-for-payment");
     renderPayPalButtons();
     paymentPanel && paymentPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
